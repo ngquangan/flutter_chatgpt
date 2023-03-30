@@ -11,6 +11,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
@@ -30,6 +31,8 @@ void main() async {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
     statusBarColor: Colors.black,
   ));
+  await dotenv.load(fileName: ".env");
+
   await GetStorage.init();
   await ChatGPT.initChatGPT();
   runApp(
